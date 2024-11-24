@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/routes/**/*",
+      "use": "@sveltejs/adapter-vercel"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)\\.png$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)\\.jpg$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)\\.woff2$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)\\.woff$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)\\.ttf$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)\\.otf$",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400"
+      },
+      "dest": "/$1"
+    }
+  ]
+}

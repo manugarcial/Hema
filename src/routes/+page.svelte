@@ -1,4 +1,28 @@
+<script>
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    // Ensure that font loading runs only on the client side
+    const font1 = new FontFace('Playfair Display', 'url(https://fonts.gstatic.com/s/playfairdisplay/v16/6xK5nbYm8h_eBihnGhFgI9XzZsB1W3n8W9KLxQGw1Vw.woff2)');
+    const font2 = new FontFace('Roboto', 'url(https://fonts.gstatic.com/s/roboto/v27/4h06bC3y1t5kcP2dCpFnboLZ8Ig0d9k2fwzjA6tPiGM.woff2)');
+    
+    Promise.all([font1.load(), font2.load()]).then(() => {
+      document.body.classList.add('fonts-loaded');
+    }).catch((error) => {
+      console.error("Font loading failed", error);
+      document.body.classList.add('fonts-loaded');
+    });
+  });
+</script>
+
+<svelte:head>
+  <!-- Preload fonts in the head section -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v16/6xK5nbYm8h_eBihnGhFgI9XzZsB1W3n8W9KLxQGw1Vw.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v27/4h06bC3y1t5kcP2dCpFnboLZ8Ig0d9k2fwzjA6tPiGM.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</svelte:head>
+
 <style>
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap'); */
 .features-section {
   display: flex;
   flex-wrap: wrap;
@@ -57,6 +81,7 @@
 }
 
 .feature-item h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 24px;
   font-weight: bold;
   color: #000;
@@ -64,6 +89,7 @@
 }
 
 .feature-item p {
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #333;
   line-height: 1.6;
@@ -80,6 +106,20 @@
   .images-section {
     grid-template-columns: 1fr;
   }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  visibility: hidden; /* Hide text until fonts are loaded */
+}
+
+body.fonts-loaded {
+  visibility: visible;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
 }
 </style>
 
@@ -111,7 +151,7 @@
 
     <div class="images-section">
       <div class="image-item">
-        <img src="lazo-rojo-hema.png" alt="Lazo rojo con fondo claro" />
+        <img src="dos-lazos-rojo-negro-hema.png" alt="Fundas para libros con diseño floral" />
       </div>
       <div class="image-item">
         <img src="bolso-flores-hema.png" alt="Bolsa estampada con flores rojas" />
@@ -120,7 +160,7 @@
         <img src="bolso-flores-hema.png" alt="Bolsa de lino con diseño bordado" />
       </div>
       <div class="image-item">
-        <img src="dos-lazos-rojo-negro-hema.png" alt="Fundas para libros con diseño floral" />
+        <img src="lazo-rojo-hema.png" alt="Lazo rojo con fondo claro" />
       </div>
     </div>
   </div>
