@@ -3,6 +3,7 @@
 	// import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import '../app.css';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	// let { children } = $props();
 </script>
 
@@ -10,14 +11,17 @@
 	{@render children()}
 </ParaglideJS> -->
 
-<Navbar /> <!-- Add the Navbar component here -->
+<Navbar />
 
 <main>
   <slot />
 </main>
 
+<Footer /> 
+
 <style>
   main {
     padding: 20px;
+		background-color: #f5ece4;
   }
 </style>

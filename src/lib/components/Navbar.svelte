@@ -16,7 +16,7 @@
       </a>
     </li>
     <a href="/" class="logo">
-      <img src="/src/static/hema-logo.png" alt="Logo" class="navbar-logo" />
+      <img src="hema-logo.png" alt="Logo" class="navbar-logo" />
     </a>
     <li class={activeLink === '/services' ? 'active' : ''}>
       <a href="/" on:click={() => activeLink = '/services'}>
