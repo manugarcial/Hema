@@ -1,30 +1,23 @@
-<script>
-  // You can add any reactive properties or functions here
-  let activeLink = '/';
-</script>
-
 <nav>
   <ul class="navbar">
-    <li class={activeLink === '/home' ? 'active' : ''}>
-      <a href="/" on:click={() => activeLink = '/'}>
-        Tote Bags
-      </a>
+    <li>
+      <a href="/tote-bags">Tote Bags</a>
     </li>
-    <li class={activeLink === '/about' ? 'active' : ''}>
-      <a href="/" on:click={() => activeLink = '/about'}>
+    <li>
+      <a href="/bolsos">
         Bolsos
       </a>
     </li>
     <a href="/" class="logo">
-      <img src="hema-logo.png" alt="Logo" class="navbar-logo" />
+      <img src="hema-logo-2.png" alt="Logo" class="navbar-logo" />
     </a>
-    <li class={activeLink === '/services' ? 'active' : ''}>
-      <a href="/" on:click={() => activeLink = '/services'}>
+    <li>
+      <a href="/lazos">
         Lazos
       </a>
     </li>
-    <li class={activeLink === '/contact' ? 'active' : ''}>
-      <a href="/" on:click={() => activeLink = '/contact'}>
+    <li>
+      <a href="/fundas-libros">
         Fundas libros
       </a>
     </li>
