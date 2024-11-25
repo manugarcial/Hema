@@ -15,10 +15,10 @@ const config = {
 
   kit: {
     // Adapter settings to handle deployment to different environments
-    // adapter: adapter({
-    //   runtime: 'nodejs18.x', // Custom runtime (if using AWS Lambda or similar)
-    // }),
-		adapter: adapterStatic(),
+    adapter: adapter({
+      runtime: 'nodejs18.x', // Custom runtime (if using AWS Lambda or similar)
+    }),
+		// adapter: adapterStatic(),
 		prerender: {
 			entries: [
 				'*', // Include all static pages
