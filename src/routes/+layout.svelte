@@ -52,6 +52,11 @@
 }
 
 @media (max-width: 768px) {
+	.whatsapp-icon {
+		width: 40px;
+		height: 40px;
+		object-fit: cover;
+	}
   .whatsapp-button {
     bottom: 10px;
     right: 10px;

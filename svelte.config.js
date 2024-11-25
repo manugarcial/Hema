@@ -1,23 +1,52 @@
 import { mdsvex } from 'mdsvex';
-import adapter from '@sveltejs/adapter-auto';
+import path from 'path';
+import adapter from '@sveltejs/adapter-auto'; // Or another adapter if needed
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: [vitePreprocess(), mdsvex()],
+  // Enable preprocessing of Svelte and MDX files
+  preprocess: [
+    vitePreprocess(),   // For using Vite with SvelteKit
+    mdsvex(),           // To handle .svx files (Svelte + Markdown)
+    sveltePreprocess(), // Additional preprocessor (e.g., SCSS, TypeScript)
+  ],
 
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter({
-      runtime: 'nodejs18.x'
-    })
-	},
+  kit: {
+    // Adapter settings to handle deployment to different environments
+    // adapter: adapter({
+    //   runtime: 'nodejs18.x', // Custom runtime (if using AWS Lambda or similar)
+    // }),
+		adapter: adapterStatic(),
+		prerender: {
+			entries: [
+				'*', // Include all static pages
+				'/product/tote-serena', // Manually add dynamic pages for prerendering
+			],
+		},
 
-	extensions: ['.svelte', '.svx']
+    // Configure path aliases for cleaner imports
+    alias: {
+      $lib: path.resolve('src/lib'),
+      $components: path.resolve('src/components'),
+      $routes: path.resolve('src/routes')
+    },
+
+    // Prerendering configuration (optional)
+    // prerender: {
+    //   default: true, // Automatically prerender pages if possible
+    // },
+
+    // Typescript configuration (optional)
+    typescript: {
+      configFile: './tsconfig.json', // Path to TypeScript config file
+    },
+
+    // Ensure .svelte and .svx extensions are handled by SvelteKit
+    extensions: ['.svelte', '.svx'],
+  },
 };
 
 export default config;
+
