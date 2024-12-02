@@ -2,7 +2,7 @@
   const fallbackImage = "https://hema-pro.vercel.app/hema-logo.png";
   function handleImageError(event: Event) {
     const target = event.target as HTMLImageElement;
-    target.src = logoFallback;
+    target.src = fallbackImage;
   }
   const products = [
     {
