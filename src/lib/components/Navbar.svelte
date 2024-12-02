@@ -9,7 +9,7 @@
       </a>
     </li>
     <a href="/" class="logo">
-      <img src="hema-logo-2.png" alt="Logo" class="navbar-logo" />
+      <img src="https://hema-pro.vercel.app/hema-logo-2.png" alt="Logo" class="navbar-logo" />
     </a>
     <li>
       <a href="/lazos">
@@ -54,8 +54,6 @@
   .navbar .logo {
     max-width: 150px;
   }
-
-  /* Responsive styling */
   @media (max-width: 768px) {
     .navbar {
       flex-direction: column;

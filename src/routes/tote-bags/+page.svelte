@@ -1,5 +1,5 @@
 <script lang="ts">
-  let logoFallback = 'hema-logo.png';
+  const fallbackImage = "https://hema-pro.vercel.app/hema-logo.png";
 
   function handleImageError(event: Event) {
     const target = event.target as HTMLImageElement;
