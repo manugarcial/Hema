@@ -12,7 +12,7 @@
       name: "Tote Serena",
       size: "39x39cm",
       price: "€25",
-      slug: "tote-serena"
+      id: "tote-serena"
     },
     {
       image: "tote-bag",
@@ -20,7 +20,7 @@
       name: "Tote Amelie",
       size: "39x39cm",
       price: "€20",
-      slug: "tote-serena"
+      id: "tote-serena"
     },
     {
       image: "/path/to/lazo.jpg",
@@ -28,7 +28,7 @@
       name: "Tote Siena",
       size: "39x39cm",
       price: "€20",
-      slug: "tote-serena"
+      id: "tote-serena"
     },
     {
       image: "/path/to/lazo.jpg",
@@ -36,7 +36,7 @@
       name: "Tote Enea",
       size: "39x39cm",
       price: "€15",
-      slug: "tote-serena"
+      id: "tote-serena"
     },
     {
       image: "/path/to/lazo.jpg",
@@ -45,7 +45,7 @@
       size: "39x39cm",
       price: "€25",
       extra: "Personalizable",
-      slug: "tote-serena"
+      id: "tote-serena"
     },
   ];
 </script>
