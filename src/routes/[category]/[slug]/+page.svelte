@@ -108,7 +108,7 @@
     addToCart(product); // Add the product to the cart
 
     // Set notification message and show it
-    notificationMessage = `${product.name} has been added to your cart!`;
+    notificationMessage = `¡${product.name} ha sido añadido al carrito!`;
     showNotification = true;
 
     // Hide notification after 3 seconds

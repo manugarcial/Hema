@@ -7,7 +7,7 @@
   }
   const products = [
     {
-      image: "/path/to/lazo.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Lazos para el cabello con cola.",
       name: "Lazo Talia",
       price: "€12",

@@ -17,6 +17,9 @@
 <nav>
   <ul class="navbar">
     <li>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </li>
+    <li>
       <a href="/tote-bags">Tote Bags</a>
     </li>
     <li>

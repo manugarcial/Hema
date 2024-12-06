@@ -7,7 +7,7 @@
   }
   const products = [
     {
-      image: "bolso.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Bolso de una tira con lazo en costados.",
       name: "Bolso Mila",
       size: "34x39cm",

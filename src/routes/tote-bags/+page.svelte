@@ -7,7 +7,7 @@
   }
   const products = [
     {
-      image: "/path/to/tote-bag.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Tote bag toda bordada motivo aleatorio.",
       name: "Tote Serena",
       size: "39x39cm",
@@ -15,7 +15,7 @@
       id: "tote-serena"
     },
     {
-      image: "tote-bag",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Tote bag con lazos.",
       name: "Tote Amelie",
       size: "39x39cm",
@@ -23,7 +23,7 @@
       id: "tote-serena"
     },
     {
-      image: "/path/to/lazo.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Tote bag con retazos.",
       name: "Tote Siena",
       size: "39x39cm",
@@ -31,7 +31,7 @@
       id: "tote-serena"
     },
     {
-      image: "/path/to/lazo.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Tote bag clásica.",
       name: "Tote Enea",
       size: "39x39cm",
@@ -39,7 +39,7 @@
       id: "tote-serena"
     },
     {
-      image: "/path/to/lazo.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Tote bag iniciales y dibujo bordadas.",
       name: "Tote Amira",
       size: "39x39cm",

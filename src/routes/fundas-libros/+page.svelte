@@ -6,7 +6,7 @@
   }
   const products = [
     {
-      image: "/path/to/funda.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Funda de libros.",
       name: "Funda Celia Small",
       sizes: [
@@ -15,7 +15,7 @@
       extra: "Plus: Bordar iniciales + €5",
     },
     {
-      image: "/path/to/funda.jpg",
+      image: "https://hema-pro.vercel.app/hema-logo.png",
       title: "Funda de libros.",
       name: "Funda Celia Big",
       sizes: [
