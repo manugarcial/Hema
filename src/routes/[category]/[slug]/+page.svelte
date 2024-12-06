@@ -41,7 +41,7 @@
       name: "Tote Siena",
       size: "39x39cm",
       price: 20,
-      id: "tote-serena"
+      id: "tote-siena"
     },
     {
       images: ["https://hema-pro.vercel.app/hema-logo.png"],
@@ -153,17 +153,17 @@
     <h1 class="text-2xl font-bold mt-4">{product.title}</h1>
     <p class="text-lg italic">{product.name}</p>
     {#if product.size}
-      <p class="text-md">Size: {product.size}</p>
+      <p class="text-md">Tamaño: {product.size}</p>
     {/if}
     {#if product.price}
-      <p class="text-md font-bold">Price: {product.price}</p>
+      <p class="text-md font-bold">Precio: {product.price}</p>
     {/if}
     {#if product.extra}
-      <p class="text-sm italic mt-2">Extra: {product.extra}</p>
+      <p class="text-sm italic mt-2">Extras: {product.extra}</p>
     {/if}
 
     {#if product.sizes}
-      <h2 class="text-lg font-semibold mt-4">Available Sizes:</h2>
+      <h2 class="text-lg font-semibold mt-4">Tamaños disponibles:</h2>
       <ul>
         {#each product.sizes as size}
           <li>{size.size}: {size.dimensions} - {size.price}</li>
@@ -171,11 +171,11 @@
       </ul>
     {/if}
     <button class="add-to-cart" on:click={() => handleAddToCart(product)}>
-      Add to Cart
+      Añadir al carrito
     </button>
   </div>
 {:else}
-  <p>Product not found!</p>
+  <p>¡Producto no encontrado!</p>
 {/if}
 
 <!-- Notification Popup -->

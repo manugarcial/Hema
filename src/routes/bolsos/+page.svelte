@@ -18,7 +18,7 @@
 
 <main class="max-w-4xl mx-auto py-8 px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
   {#each products as product}
-    <a href={`/product/${product.name.toLowerCase().replace(/\s+/g, '-')}`}>
+    <a href={`/bolsos/${product.name.toLowerCase().replace(/\s+/g, '-')}`}>
       <div class="flex flex-col gap-4">
         <!-- Product Image -->
         <img
