@@ -5,41 +5,86 @@
   let cartItems = get(cart);
   let totalSum = 0;
 
+  let name = '';
+  let email = '';
+  let address = '';
+
+  // Track the cart items and total sum
   cart.subscribe((items) => {
     cartItems = items;
     totalSum = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   });
 
+  // Increase item quantity
   function handleIncrease(id: string) {
     increaseQuantity(id);
   }
 
+  // Decrease item quantity
   function handleDecrease(id: string) {
     decreaseQuantity(id);
   }
 
+  // Remove item from cart
   function handleRemove(id: string) {
     removeFromCart(id);
   }
 
+  // Clear the entire cart
   function handleClearCart() {
     clearCart();
   }
 
+  const phoneNumber = '34655107255';
+
+  // Function to generate the WhatsApp message and update the link
   function generateWhatsAppMessage() {
+    if (!name || !email || !address) {
+      alert('Por favor, completa todos los campos.');
+      return '';
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(email)) {
+      alert('Por favor, introduce un email válido.');
+      return '';
+    }
+
+    // Generate cart items details
     const message = cartItems.map(item => 
       `${item.name} - €${item.price} x ${item.quantity}`
     ).join("\n");
 
+    // Generate the total and address message
     const totalMessage = `\nTotal: €${totalSum.toFixed(2)}`;
-    const fullMessage = `Hola, me gustaría realizar el siguiente pedido:\n${message}${totalMessage}`;
+    const addressMessage = `
+    Nombre: ${name}
+    Correo: ${email}
+    Dirección: ${address}`;
+    
+    // Construct the full message
+    const fullMessage = `Hola, me gustaría realizar el siguiente pedido:\n${message}${totalMessage}\n\nDetalles de entrega:${addressMessage}`;
 
-    return encodeURIComponent(fullMessage);
+    // Encode the message and set the WhatsApp link
+    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
   }
 
-  const phoneNumber = '34655107255';
-  const whatsappLink = `https://wa.me/${phoneNumber}?text=${generateWhatsAppMessage()}`;
+  // Handle the WhatsApp redirection on link click
+  function handleWhatsAppRedirect(event) {
+    // Prevent the default link behavior (i.e., reloading the page)
+    event.preventDefault();
+
+    // Generate the WhatsApp link
+    const whatsappLink = generateWhatsAppMessage();
+
+    if (whatsappLink) {
+      window.open(whatsappLink, '_blank');
+    }
+  }
+
+  $: isFormValid = name && email && address && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
 </script>
+
 
 <style>
   .cart-title {
@@ -144,8 +189,38 @@
   .checkout-button:hover {
     background-color: #128C7E;
   }
-</style>
+  
+  .checkout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+  }
 
+  .form-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+</style>
 
 <div class="cart-container">
   <h1 class="cart-title">Tu carrito</h1>
@@ -169,20 +244,60 @@
     </div>
 
     <div class="cart-summary">
-      <p class="cart-sum">Total: €{cartItems.reduce((total, item) => total + Number(item.price) * item.quantity, 0)}</p>
+      <p class="cart-sum">Total: €{totalSum.toFixed(2)}</p>
       <button on:click={handleClearCart}>Vaciar carrito</button>
     </div>
-  {:else}
-    <p>Tu carrito está vacío.</p>
   {/if}
-</div>
 
-<div class="checkout-container">
   {#if cartItems.length > 0}
-    <a href={whatsappLink} class="checkout-button" target="_blank" rel="noopener noreferrer">
-      Realizar pedido via WhatsApp
-    </a>
-  {:else}
-    <p>Tu carrito está vacío. Añada artículos al carrito para realizar el pedido.</p>
+    <div class="form-container">
+      <h1 class="cart-title">Detalles de entrega</h1>
+
+      <div class="form-group">
+        <label for="name">Nombre y apellidos:</label>
+        <input 
+          id="name" 
+          type="text" 
+          bind:value={name} 
+          placeholder="Introduce tu nombre" 
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input 
+          id="email" 
+          type="email" 
+          bind:value={email} 
+          placeholder="Introduce tu email" 
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="address">Dirección:</label>
+        <input 
+          id="address" 
+          type="text" 
+          bind:value={address} 
+          placeholder="Introduce tu dirección" 
+          required
+        />
+      </div>
+    </div>
   {/if}
+
+  <!-- Checkout Section -->
+  <div class="checkout-container">
+    {#if cartItems.length > 0}
+      <button 
+        type="submit"
+        class="checkout-button"
+        on:click={(event) => handleWhatsAppRedirect(event)}
+        disabled={!isFormValid}>
+        Realizar pedido via WhatsApp
+      </button>
+    {:else}
+      <p>Tu carrito está vacío. Añade artículos al carrito para realizar el pedido.</p>
+    {/if}
+  </div>
 </div>
