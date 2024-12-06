@@ -8,9 +8,17 @@
     {
       image: "/path/to/funda.jpg",
       title: "Funda de libros.",
-      name: "Funda Celia",
+      name: "Funda Celia Small",
       sizes: [
         { size: "Pequeño", dimensions: "19cm x 21cm", price: "€15" },
+      ],
+      extra: "Plus: Bordar iniciales + €5",
+    },
+    {
+      image: "/path/to/funda.jpg",
+      title: "Funda de libros.",
+      name: "Funda Celia Big",
+      sizes: [
         { size: "Grande", dimensions: "21cm x 26cm", price: "€20" },
       ],
       extra: "Plus: Bordar iniciales + €5",

@@ -6,7 +6,7 @@ const validData = {
   'tote-bags': ['tote-serena', 'tote-amelie', 'tote-siena', 'tote-enea', 'tote-amira'],
   bolsos: ['bolso-mila'],
   lazos: ['lazo-talia'],
-  'fundas-libros': ['funda-celia'],
+  'fundas-libros': ['funda-celia-small', 'funda-celia-big'],
 };
 
 export const load: PageServerLoad = async ({ params, url }) => {

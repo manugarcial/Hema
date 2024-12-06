@@ -75,17 +75,28 @@
       price: 12,
       id: "lazo-talia"
     },
-    // {
-    //   images: ["https://hema-pro.vercel.app/hema-logo.png"],
-    //   title: 'Funda de libros.',
-    //   name: 'Funda Celia',
-    //   sizes: [
-    //     { size: 'Pequeño', dimensions: '19cm x 21cm', price: '€15' },
-    //     { size: 'Grande', dimensions: '21cm x 26cm', price: '€20' },
-    //   ],
-    //   extra: 'Plus: Bordar iniciales + €5',
-    //   id: "funda-celia",
-    // },
+    {
+      images: ["https://hema-pro.vercel.app/hema-logo.png"],
+      title: 'Funda de libros.',
+      name: 'Funda Celia',
+      price: 15,
+      sizes: [
+        { size: 'Pequeño', dimensions: '19cm x 21cm', price: '€15' },
+      ],
+      extra: 'Plus: Bordar iniciales + €5',
+      id: "funda-celia-small",
+    },
+    {
+      images: ["https://hema-pro.vercel.app/hema-logo.png"],
+      title: 'Funda de libros.',
+      name: 'Funda Celia',
+      price: 20,
+      sizes: [
+        { size: 'Grande', dimensions: '21cm x 26cm', price: '€20' },
+      ],
+      extra: 'Plus: Bordar iniciales + €5',
+      id: "funda-celia-big",
+    },
   ];
 
   let product: Product | undefined;
